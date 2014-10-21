@@ -16,10 +16,5 @@ def main():
 	Answers.Answers(Info,Currency,Price)
 
 
-	# Translate_To_Earth_Numerals();
-	# Write_Out();
-
-
-
 if __name__ == "__main__":
     main()
