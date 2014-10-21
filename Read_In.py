@@ -23,12 +23,11 @@ def Read_In():
 		else: 
 			condition_line.append(line)
 
-	for condition_case in condition_line:
-		judge=re.search(r'[IVXLCDM]$',condition_case)
-		if judge:
+
+	for condition_case in condition_line[:]:
+		if re.search(r'[IXVLCDM]$',condition_case) != None:
 			condition_line.remove(condition_case)
 			condition_roman.append(condition_case)
-
 	return info
 
 

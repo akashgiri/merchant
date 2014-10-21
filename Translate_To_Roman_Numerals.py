@@ -9,6 +9,8 @@ def Translate_To_Roman_Numerals(Info):
 		转义为罗马数字模块
 
 		提取输入信息中对星际货币与罗马数字的转换信息
+
+
 	"""
 	Translate_To_Roman=[[],[],[],[],[],[],[]]
 	currency={}
@@ -19,10 +21,10 @@ def Translate_To_Roman_Numerals(Info):
 			for index,number in enumerate(value):
 				Translate_To_Roman[index]=number.split()
 
+
 	for i in Translate_To_Roman:
 		if i:
 			currency[i[0]]=i[2]
-
 	return currency
 
 
