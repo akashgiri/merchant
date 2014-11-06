@@ -3,7 +3,7 @@
 
 import re
 
-import Translate_To_Earth_Numerals
+import translate_to_earth_numerals
 
 
 def get_answers(info, currency, price):
@@ -27,21 +27,22 @@ def get_answers(info, currency, price):
 							words_total = words_total.join(['',' '])
 							roman_sum=roman_sum.join(['',valuerance])
 
-					earth_sum = Translate_To_Earth_Numerals.Translate_To_Earth_Numerals(roman_sum)
+					earth_sum = translate_to_earth_numerals.translate_to_earth_numerals(roman_sum)
 					print words_total,'is',earth_sum
 				elif re.search(r'^how many Credits is',i) != None:
 					for words in i.split(' '):
 						if currency.has_key(words):
-							valuerance=currency[words]
+							valuerance = currency[words]
 							words_total = words_total.join(['',words])
 							words_total = words_total.join(['',' '])
-							roman_sum=roman_sum.join(['',valuerance])
+							roman_sum = roman_sum.join(['',valuerance])
 
-						earth_sum = Translate_To_Earth_Numerals.Translate_To_Earth_Numerals(roman_sum)
+						earth_sum = translate_to_earth_numerals.translate_to_earth_numerals(roman_sum)
 						if price.has_key(words):
-							Material_Price = price[words]
+							material_price = price[words]
 							material = words
-					print words_total,material,'is',earth_sum,'Credits'
+							total_price = earth_sum * material_price
+					print words_total,material,'is',int(total_price),'Credits'                      #为了保持与原题输出一致，省略小数点
 				else:
 					print 'I have no idea what you are talking about'
 

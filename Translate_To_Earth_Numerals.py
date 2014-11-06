@@ -2,7 +2,7 @@
 #coding=utf-8
 import re
 
-def Translate_To_Earth_Numerals(RomanStr):
+def translate_to_earth_numerals(RomanStr):
 	"""
 		转义为阿拉伯数字模块
 
@@ -68,5 +68,5 @@ def Translate_To_Earth_Numerals(RomanStr):
 if __name__ == "__main__":
 
 	a='MM'
-	Translate_To_Earth_Numerals(a)
+	translate_to_earth_numerals(a)
 	

@@ -2,7 +2,7 @@
 #coding=utf-8
 
 import os
-import Read_In,Write_Out,Translate_To_Roman_Numerals,Translate_To_Earth_Numerals,Per_Price,Answers
+import read_file, translate_to_roman_numerals,translate_to_earth_numerals,price,answers
 
 
 def main():
@@ -10,10 +10,10 @@ def main():
 	主函数
 
 	"""
-	Info = Read_In.Read_In()
-	Currency = Translate_To_Roman_Numerals.Translate_To_Roman_Numerals(Info)
-	Price = Per_Price.Per_Price(Info,Currency)
-	Answers.Answers(Info,Currency,Price)
+	info = read_file.read_file("mission.txt")
+	currency = translate_to_roman_numerals.translate_to_roman_numerals(info)
+	get_price = price.cal_unit_price(info, currency)
+	answers.get_answers(info,currency,get_price)
 
 
 if __name__ == "__main__":

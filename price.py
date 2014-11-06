@@ -3,10 +3,10 @@
 
 import re
 
-import Translate_To_Earth_Numerals
+import translate_to_earth_numerals
 
 
-def cal_unit_price(Info,currency):
+def cal_unit_price(info,currency):
 	"""
 	计算单个材料价格
 	读取相关信息
@@ -14,7 +14,7 @@ def cal_unit_price(Info,currency):
 	"""
 	price={}
 
-	for key,value in Info.items():
+	for key,value in info.items():
 		if(key=='condition_line'):
 			for condition in value:
 				roman_sum=''
@@ -29,11 +29,11 @@ def cal_unit_price(Info,currency):
 							if i:
 								roman = currency[i]
 								roman_sum = roman_sum.join(['',roman])
-								earth_sum = Translate_To_Earth_Numerals.Translate_To_Earth_Numerals(roman_sum)
+								earth_sum = translate_to_earth_numerals.translate_to_earth_numerals(roman_sum)
 
 						for i in sentense[1].split(' '):
 							if i.isdigit():
-								value_number = int(i)
+								value_number = float(i)        #单价可能含小数
 
 						price[temp] = value_number / earth_sum
 	return price

@@ -2,9 +2,9 @@
 #coding=utf-8
 
 
-import Read_In
+import read_file
 
-def Translate_To_Roman_Numerals(Info):
+def translate_to_roman_numerals(info):
 	"""
 		转义为罗马数字模块
 
@@ -12,17 +12,17 @@ def Translate_To_Roman_Numerals(Info):
 
 
 	"""
-	Translate_To_Roman=[[],[],[],[],[],[],[]]
+	translate_to_roman=[[],[],[],[],[],[],[]]
 	currency={}
 
 
-	for key,value in Info.items():
+	for key,value in info.items():
 		if(key=='condition_roman'):
 			for index,number in enumerate(value):
-				Translate_To_Roman[index]=number.split()
+				translate_to_roman[index]=number.split()
 
 
-	for i in Translate_To_Roman:
+	for i in translate_to_roman:
 		if i:
 			currency[i[0]]=i[2]
 	return currency
@@ -33,5 +33,5 @@ def Translate_To_Roman_Numerals(Info):
 
 if __name__ == "__main__":
 
-	Info = Read_In.Read_In()
-	Translate_To_Roman_Numerals(Info)
+	info = read_file.read_file()
+	translate_to_roman_numerals(info)
