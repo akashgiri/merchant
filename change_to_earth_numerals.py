@@ -2,19 +2,7 @@
 #coding=utf-8
 import re
 
-def translate_to_earth_numerals(RomanStr):
-	"""
-		转义为阿拉伯数字模块
-
-		将罗马数字转化为阿拉伯数字
-
-		输入：
-			罗马数字
-
-		返回：
-			阿拉伯数字
-
-	"""
+def change_to_earth_numerals(RomanStr):
 
 	if re.search('^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$',RomanStr)!= None:
 		NumDic = {"pattern":"","retNum":0}
@@ -62,11 +50,8 @@ def translate_to_earth_numerals(RomanStr):
 	else:
 		print 'String is not a valid Roman numerals'
 
-
-
-
 if __name__ == "__main__":
 
 	a='MM'
-	translate_to_earth_numerals(a)
+	change_to_earth_numerals(a)
 	

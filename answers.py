@@ -2,18 +2,14 @@
 #coding=utf-8
 
 import re
-
-import translate_to_earth_numerals
-
+import change_to_earth_numerals
 
 def get_answers(info, currency, price):
 	"""
-	返回模块
-	读取相关参数
-	返回结果
 	"""
-	for key,value in info.items():
-		if(key=='question_line'):
+	print info
+	for key, value in info.items():
+		if key == 'question_lines':
 			for i in value:
 				roman_sum=''
 				words_total=''
@@ -27,7 +23,7 @@ def get_answers(info, currency, price):
 							words_total = words_total.join(['',' '])
 							roman_sum=roman_sum.join(['',valuerance])
 
-					earth_sum = translate_to_earth_numerals.translate_to_earth_numerals(roman_sum)
+					earth_sum = change_to_earth_numerals.change_to_earth_numerals(roman_sum)
 					print words_total,'is',earth_sum
 				elif re.search(r'^how many Credits is',i) != None:
 					for words in i.split(' '):
@@ -37,7 +33,7 @@ def get_answers(info, currency, price):
 							words_total = words_total.join(['',' '])
 							roman_sum = roman_sum.join(['',valuerance])
 
-						earth_sum = translate_to_earth_numerals.translate_to_earth_numerals(roman_sum)
+						earth_sum = change_to_earth_numerals.change_to_earth_numerals(roman_sum)
 						if price.has_key(words):
 							material_price = price[words]
 							material = words

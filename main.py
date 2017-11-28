@@ -1,20 +1,17 @@
 #!/usr/local/bin/python
 #coding=utf-8
 
-import os
-import read_file, translate_to_roman_numerals,translate_to_earth_numerals,price,answers
-
+import read_input, change_to_roman_numerals, \
+		change_to_earth_numerals, price, answers
 
 def main():
 	"""
-	主函数
-
+	Main program to process input file and generate required answers
 	"""
-	info = read_file.read_file("mission.txt")
-	currency = translate_to_roman_numerals.translate_to_roman_numerals(info)
-	get_price = price.cal_unit_price(info, currency)
-	answers.get_answers(info,currency,get_price)
-
+	input_content = read_input.read_input("input.txt")
+	currency = change_to_roman_numerals.change_to_roman_numerals(input_content)
+	unit_price = price.calculate_unit_price(input_content, currency)
+	answers.get_answers(input_content, currency, unit_price)
 
 if __name__ == "__main__":
     main()
