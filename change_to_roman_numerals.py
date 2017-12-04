@@ -5,7 +5,7 @@ def change_to_roman_numerals(input_content):
 	change_to_roman = []
 	currency = {}
 
-	print input_content
+	print(input_content)
 
 	for key, value in input_content.items():
 		if key == 'roman_attributes':
@@ -17,7 +17,7 @@ def change_to_roman_numerals(input_content):
 		if i:
 			currency[i[0]] = i[-1]
 
-	print change_to_roman
-	print currency
+	print("change_to_roman: ", change_to_roman)
+	print("currency: ", currency)
 	
 	return currency

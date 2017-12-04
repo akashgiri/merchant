@@ -28,23 +28,32 @@ def calculate_unit_price(input_content, currency):
 	for line in input_content["resource_lines"]:
 		roman_sum = ''
 		earth_sum = ''
-		value_number = 0
+		value = 0
 
 		for resource in resources:
 			if re.search(resource, line) != None:
 				data = line.split(resource)
 
-				for i in data[0].split(' '):
+				print("line: ", line)
+				print("resource: ", resource)
+				
+				for i in data[0].split():
 					if i:
 						roman = currency[i]
 						roman_sum = roman_sum.join(['',roman])
-						earth_sum = change_to_earth_numerals.change_to_earth_numerals(roman_sum)
+						
+						#earth_sum = change_to_earth_numerals.change_to_earth_numerals(roman_sum)
 
-				for i in data[1].split(' '):
+				for i in data[1].split():
 					if i.isdigit():
-						value_number = float(i)        #单价可能含小数
+						value = float(i)
 
-				price[resource] = value_number / earth_sum
+				print("calling roman sum: "+roman_sum)
+				earth_sum = change_to_earth_numerals.change_to_earth_numerals(roman_sum)
+				price[resource] = value / earth_sum
+
+	print("price: ", price)
+	print("\n\n\n\n")
 	return price
 
 
@@ -59,7 +68,7 @@ def calculate_unit_price_back(input_content, currency):
 			for line in value:
 				roman_sum = ''
 				earth_sum = ''
-				value_number = 0
+				value = 0
 
 				resources = get_resources_list()
 				for resource in ['Silver','Gold','Iron']:
@@ -74,9 +83,9 @@ def calculate_unit_price_back(input_content, currency):
 
 						for i in data[1].split(' '):
 							if i.isdigit():
-								value_number = float(i)        #单价可能含小数
+								value = float(i)        #单价可能含小数
 
-						price[resource] = value_number / earth_sum
+						price[resource] = value / earth_sum
 	return price
 
 if __name__ == "__main__":
